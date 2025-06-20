@@ -1,5 +1,6 @@
 package com.example.userservice.services;
 
+import com.example.userservice.exceptions.ValidTokenNotFoundException;
 import com.example.userservice.models.Token;
 import com.example.userservice.models.User;
 
@@ -8,7 +9,7 @@ public interface UserService {
 
     User signUp(String name, String email, String password);
 
-    void logout(String token);
+    void logout(String token) throws ValidTokenNotFoundException;
 
-    User validateToken(String token);
+    User validateToken(String token) throws ValidTokenNotFoundException;
 }
