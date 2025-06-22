@@ -18,4 +18,28 @@ public class Token extends BaseModel{
 
     @ManyToOne
     private User user;
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public Date getExpiryAt() {
+        return expiryAt;
+    }
+
+    public void setExpiryAt(Date expiryAt) {
+        this.expiryAt = expiryAt;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

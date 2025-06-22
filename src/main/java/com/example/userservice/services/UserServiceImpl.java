@@ -89,7 +89,7 @@ public class UserServiceImpl implements UserService {
         //and isDeleted is false
 
         Optional<Token> optionalToken = tokenRepository.
-                findByValueAAndDeletedAndExpiryAtGreaterThan(tokenValue, false, new Date());
+                findByValueAndDeletedAndExpiryAtGreaterThan(tokenValue, false, new Date());
 
 
         if(optionalToken.isEmpty()) {
@@ -105,7 +105,7 @@ public class UserServiceImpl implements UserService {
     public User validateToken(String tokenValue) throws ValidTokenNotFoundException {
 
         Optional<Token> optionalToken = tokenRepository.
-                findByValueAAndDeletedAndExpiryAtGreaterThan(tokenValue, false, new Date());
+                findByValueAndDeletedAndExpiryAtGreaterThan(tokenValue, false, new Date());
 
         if(optionalToken.isEmpty()) {
             throw new ValidTokenNotFoundException("Valid token not found.");

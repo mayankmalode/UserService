@@ -8,4 +8,12 @@ import lombok.Setter;
 @Setter
 public class LogOutRequestDto {
     private String tokenValue;
+
+    public String getTokenValue() {
+        return tokenValue;
+    }
+
+    public void setTokenValue(String tokenValue) {
+        this.tokenValue = tokenValue;
+    }
 }

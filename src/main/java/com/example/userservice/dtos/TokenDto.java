@@ -24,4 +24,27 @@ public class TokenDto {
         return tokenDto;
     }
 
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public Date getExpiryAt() {
+        return expiryAt;
+    }
+
+    public void setExpiryAt(Date expiryAt) {
+        this.expiryAt = expiryAt;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }
