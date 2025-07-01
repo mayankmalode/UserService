@@ -77,8 +77,11 @@ public class SecurityConfig {
             throws Exception {
         http
                 .authorizeHttpRequests((authorize) -> authorize
-                        .anyRequest().authenticated()
-                )
+//                        .requestMatchers("/login").permitAll()
+//                        .requestMatchers("/signup").permitAll()
+                        .anyRequest().permitAll())
+                        .cors().disable()
+                        .csrf().disable()
                 // Form login handles the redirect to the login page from the
                 // authorization server filter chain
                 .formLogin(Customizer.withDefaults());
@@ -86,16 +89,18 @@ public class SecurityConfig {
         return http.build();
     }
 
-    @Bean
-    public UserDetailsService userDetailsService() {
-        UserDetails userDetails = User.withDefaultPasswordEncoder()
-                .username("user")
-                .password("$2a$12$46T8NPKOELUJmiDyt5Foae1LrdXlqn8OVBvRMAbYlGHFvj1vIi/.S")
-                .roles("USER")
-                .build();
-
-        return new InMemoryUserDetailsManager(userDetails);
-    }
+//    @Bean
+//    public UserDetailsService userDetailsService() {
+//        //Instead of hard coding the credentials, we should fetch it from database.
+//        UserDetails userDetails = User.builder()
+//                //gmail user and Bcrypted password
+//                .username("scaler")
+//                .password("$2a$12$2/QROdGaqZ1dF2YUpEN7LekAtsKTdpMt.pCYHUqcHGBK0D3Lz35P2")
+//                .roles("USER")
+//                .build();
+//
+//        return new InMemoryUserDetailsManager(userDetails);
+//    }
 
 //    @Bean
 //    public RegisteredClientRepository registeredClientRepository() {
